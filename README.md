@@ -11,6 +11,7 @@ Sin dependencias raras: solo `flask` y `pymysql`. Todo lo demás es la librería
 | `diagnostico.py` | Ficha técnica del entorno y **verificación OK / AVISO / FALLA** | 5002 |
 | `recargas.py` | Prueba de humo 1: dos tablas, formularios, filtros, DataTables, patrón POST → redirect | 5000 |
 | `usuarios.py` | Prueba de humo 2: login/logout, contraseñas con hash, subida de JPG a BLOB, baja lógica, CSRF | 5001 |
+| `sql/esquema.sql` | Script de creación de las dos bases y sus tablas (opcional) | |
 | `requirements.txt` | Paquetes a instalar | |
 | `static/vendor/` | Aquí van las librerías front-end (se descargan aparte, ver abajo) | |
 
@@ -144,7 +145,15 @@ python recargas.py     # http://127.0.0.1:5000
 python usuarios.py     # http://127.0.0.1:5001
 ```
 
-Cada uno crea su propia base de datos (`practica_recargas`, `practica_usuarios`) y sus tablas la primera vez.
+Cada uno crea su propia base de datos (`practica_recargas`, `practica_usuarios`) y sus tablas la primera vez que arranca.
+
+Si prefieres crearlas tú de forma controlada (por ejemplo, para no darle permiso de `CREATE` a la aplicación), usa el script SQL, que es equivalente y se puede correr varias veces sin borrar nada:
+
+```
+mysql -u USUARIO -p < sql/esquema.sql
+```
+
+El script no modifica tablas que ya existan. Incluye, comentados, un bloque para crear el usuario `admin` a mano y otro para reiniciar todo.
 
 `usuarios.py` crea el usuario `admin` con una **contraseña aleatoria que se imprime una sola vez en la consola**. Cópiala en ese momento.
 
