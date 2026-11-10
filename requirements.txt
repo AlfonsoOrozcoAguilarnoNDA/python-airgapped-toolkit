@@ -1,0 +1,5 @@
+# Dependencias de Python (todo lo demás es librería estándar).
+# Sin pins a propósito: baja lo más reciente compatible con tu Python.
+# Para entorno sin internet:  pip download -r requirements.txt -d wheels
+flask
+pymysql
