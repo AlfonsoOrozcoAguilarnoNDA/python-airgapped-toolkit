@@ -8,6 +8,8 @@
 > cada paso. En Linux se replica con `requirements.txt` y usuarios de sistema
 > separados. La idea es poder ir instalando manualmente lo que falta si no hay
 > `venv` disponible, y entender qué hace cada comando.
+>
+> **Ruta Inari**: https://github.com/quocmffx/sushibox-inari/tree/master Buscar releases 
 
 ---
 
